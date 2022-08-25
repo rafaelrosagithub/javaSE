@@ -7,7 +7,8 @@ public class ReferenceVariable {
 		x = 9;
 		
 		// Garbage collector only acts on reference variables
-		String y = "ZYZ";
+		String y = "ZYZ"; // Will lose the reference, garbage collector will act
+		y = "ZYZWST"; // New reference
 		
 		y = null; // Lose the reference
 	}
