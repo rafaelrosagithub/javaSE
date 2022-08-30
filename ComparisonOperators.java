@@ -11,6 +11,15 @@ public class ComparisonOperators {
 	
 	public static void main(String[] args) {
 		System.out.println("Comparison Operators");
+		
+		Integer x = 7;
+		System.out.println(x == 7);
+		System.out.println(x != 7);
+		System.out.println(x > 7);
+		System.out.println(x < 7);
+		System.out.println(x >= 7);
+		System.out.println(x <= 7);
+		System.out.println(x instanceof Integer); // Instanceof is used to compare object only
 	}	
 	
 }
