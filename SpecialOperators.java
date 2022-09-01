@@ -24,6 +24,7 @@ public class SpecialOperators {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Report the radius");
 		double radius = s.nextDouble();
+		
 		// Diameter = 2r  
 		// double radius = 10;
 		double diameter = 2 * radius;
