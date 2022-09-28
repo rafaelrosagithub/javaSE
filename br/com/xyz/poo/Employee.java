@@ -17,6 +17,25 @@ public class Employee {
 	String name2; // Package modifier
 	public String name3;
 
+	private String name;
+	private boolean active;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	private String getName1() {
 		System.out.println("Private getName1()");
 		return name3;
@@ -47,6 +66,10 @@ public class Employee {
 		e.name3 = "Public modifier";
 		System.out.println(e.name3);
 		e.getName3();
+
+		e.setName("Rafael");
+		System.err.println(e.getName());
+		System.err.println(e.isActive());
 	}
 
 }

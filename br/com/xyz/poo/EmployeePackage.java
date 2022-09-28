@@ -17,6 +17,9 @@ public class EmployeePackage {
 		e.name3 = "Public modifier";
 		System.out.println(e.name3);
 		e.getName3();
+		
+		e.setName("Package Rafael");
+		System.err.println(e.getName());
 	}
 
 }
