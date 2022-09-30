@@ -45,7 +45,6 @@ public class Mathematics {
 		return total;
 	}
 
-	// Methods with variable arguments
 	double sum1(String title, double... numbers) {
 		double total = 0;
 		for (double n : numbers) {
@@ -55,7 +54,6 @@ public class Mathematics {
 		return total;
 	}
 
-	// Methods with variable arguments
 	double sum2(double[] numbers) {
 		double total = 0;
 		for (double n : numbers) {
@@ -63,6 +61,29 @@ public class Mathematics {
 		}
 
 		return total;
+	}
+
+	// Overloaded methods
+	double average(int x) {
+		System.out.print("average(int x) ");
+		return x;
+	}
+
+	double average(int x, int y) {
+		System.out.print("average(int x, int y) ");
+		return (x + y) / 2;
+	}
+
+	double average(double... numbers) {
+		System.out.print("average(double... numbers) ");
+		return this.sum(numbers) / numbers.length;
+	}
+
+	double average(String x, String y) {
+		System.out.print("average(String x, String y) ");
+		int ix = Integer.parseInt(x);
+		int iy = Integer.parseInt(y);
+		return (ix + iy) / 2;
 	}
 
 }

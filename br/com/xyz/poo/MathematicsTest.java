@@ -29,6 +29,13 @@ public class MathematicsTest {
 
 		double[] numbers = { 2, 5, 5, 5 };
 		System.out.println(m.sum2(numbers));
+
+		// Overloaded methods
+		System.out.println(m.average(5));
+		System.out.println(m.average(5, 3));
+		System.out.println(m.average(2, 10, 20, 10, 8));
+		System.out.println(m.average("5", "3"));
+
 	}
 
 }
