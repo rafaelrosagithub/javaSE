@@ -23,6 +23,12 @@ public class MathematicsTest {
 		System.out.println("The square root of " + number + ": " + resultRoot);
 
 		System.out.println("Using class Math: " + Math.sqrt(number));
+
+		System.out.println(m.sum(2, 2, 2, 2, 2));
+		System.out.println(m.sum1("Title", 2, 2, 2, 2, 2));
+
+		double[] numbers = { 2, 5, 5, 5 };
+		System.out.println(m.sum2(numbers));
 	}
 
 }
