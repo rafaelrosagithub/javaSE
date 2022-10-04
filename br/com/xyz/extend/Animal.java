@@ -16,6 +16,6 @@ public class Animal {
 	}
 
 	void makeNoise() {
-		System.out.println("Make noise...");
+		System.out.println("Make noise... Animal");
 	}
 }

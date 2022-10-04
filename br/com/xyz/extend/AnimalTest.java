@@ -2,16 +2,42 @@ package br.com.xyz.extend;
 
 public class AnimalTest {
 
+	public static void noise(Animal animal) {
+		System.out.println("noise()");
+		animal.makeNoise();
+	}
+
+	public static void noiseWithoutPolymorphism(String animal) {
+		System.out.println("noiseWithoutPolymorphism()");
+		if (animal.equals("Dog")) {
+			System.out.println("Au, Au !!!");
+		} else if (animal.equals("Chiken")) {
+			System.out.println("Có, Có !!!");
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("AnimalTest class");
 
-		Dog scoobyDoo = new Dog();
+		Animal scoobyDoo = new Dog();
 		scoobyDoo.food = "meat";
 		scoobyDoo.toSleep();
+		scoobyDoo.makeNoise();
 
-		Chiken caress = new Chiken();
+		Animal caress = new Chiken();
 		caress.food = "corn";
 		caress.toSleep();
+		caress.makeNoise();
+
+		Animal generic = new Animal(0, null);
+		generic.makeNoise();
+
+		noise(scoobyDoo);
+		noise(caress);
+		noise(generic);
+
+		noiseWithoutPolymorphism("Dog");
+		noiseWithoutPolymorphism("Chiken");
 
 		System.out.println(scoobyDoo instanceof Dog);
 		System.out.println(scoobyDoo instanceof Animal);
