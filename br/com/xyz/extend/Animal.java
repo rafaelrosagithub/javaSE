@@ -11,7 +11,8 @@ public abstract class Animal {
 		this.food = food;
 	}
 
-	void toSleep() {
+	// Final modifier, this method can no longer be modified by anyone who extends this class
+	final void toSleep() {
 		System.out.println("Slept...");
 	}
 
