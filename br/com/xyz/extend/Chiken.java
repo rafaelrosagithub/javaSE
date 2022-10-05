@@ -6,6 +6,7 @@ public class Chiken extends Animal {
 		super(30, "Corn");
 	}
 
+	@Override
 	void makeNoise() {
 		System.out.println("Có, Có !!!");
 	}

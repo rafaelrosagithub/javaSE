@@ -28,13 +28,12 @@ public class AnimalTest {
 		caress.food = "corn";
 		caress.toSleep();
 		caress.makeNoise();
-
-		Animal generic = new Animal(0, null);
-		generic.makeNoise();
+		
+		// The animal class is an abstract class, so it cannot be instantiated
+		// Animal generic = new Animal(0, null); 
 
 		noise(scoobyDoo);
 		noise(caress);
-		noise(generic);
 
 		noiseWithoutPolymorphism("Dog");
 		noiseWithoutPolymorphism("Chiken");

@@ -1,6 +1,6 @@
 package br.com.xyz.extend;
 
-public class Animal {
+public abstract class Animal {
 
 	protected int serial;
 	double weight;
@@ -15,7 +15,5 @@ public class Animal {
 		System.out.println("Slept...");
 	}
 
-	void makeNoise() {
-		System.out.println("Make noise... Animal");
-	}
+	abstract void makeNoise();
 }
