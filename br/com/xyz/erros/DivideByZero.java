@@ -20,11 +20,8 @@ public class DivideByZero {
 				int b = s.nextInt();
 				System.out.println(a / b);
 				condition = false;
-			} catch (InputMismatchException e1) {
-				System.err.println("Numbers must be of type int");
-				s.nextLine();
-			} catch (ArithmeticException e2) {
-				System.err.println("Divisor must be non-zero");
+			} catch (InputMismatchException | ArithmeticException e1) {
+				System.err.println("Number invalid");
 				s.nextLine();
 			} finally {
 				System.out.println("Finally executed!");
