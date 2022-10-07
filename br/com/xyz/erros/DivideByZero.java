@@ -22,6 +22,9 @@ public class DivideByZero {
 				condition = false;
 			} catch (InputMismatchException | ArithmeticException e1) {
 				System.err.println("Number invalid");
+				// e1.printStackTrace();
+				// System.out.println(e1.getStackTrace()[0]);
+				// System.out.println(e1.getMessage());
 				s.nextLine();
 			} finally {
 				System.out.println("Finally executed!");
