@@ -5,6 +5,14 @@ import java.util.Scanner;
 
 public class DivideByZero {
 
+	public static void divide(Scanner s) throws InputMismatchException, ArithmeticException {
+		System.out.println("Number: ");
+		int a = s.nextInt();
+		System.out.println("Divider: ");
+		int b = s.nextInt();
+		System.out.println(a / b);
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Divide by zero");
 
@@ -14,11 +22,7 @@ public class DivideByZero {
 
 		do {
 			try {
-				System.out.println("Number: ");
-				int a = s.nextInt();
-				System.out.println("Divider: ");
-				int b = s.nextInt();
-				System.out.println(a / b);
+				divide(s);
 				condition = false;
 			} catch (InputMismatchException | ArithmeticException e1) {
 				System.err.println("Number invalid");
