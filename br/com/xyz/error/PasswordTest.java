@@ -1,4 +1,4 @@
-package br.com.xyz.erros;
+package br.com.xyz.error;
 
 public class PasswordTest {
 

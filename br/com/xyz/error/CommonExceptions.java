@@ -1,4 +1,4 @@
-package br.com.xyz.erros;
+package br.com.xyz.error;
 
 import br.com.xyz.extend.Animal;
 import br.com.xyz.extend.Chiken;
