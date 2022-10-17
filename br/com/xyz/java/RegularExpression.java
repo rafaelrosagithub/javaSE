@@ -78,9 +78,32 @@ public class RegularExpression {
 		b = "There is a Route53 here".matches(".*Route.*");
 		b = "There is a Route53 here".matches("^There.*here$");
 		b = "yes".matches("yes|no");
+		//System.out.println(b);
+		
+		// Groupers
+		// [...]           Grouping
+		// [a-z]           Reach
+		// [a-e][i-u]      Union
+		// [a-z&&[aeiou]]  Intersection
+		// [^abc]          Exception
+		// [a-z&&[^m-p]]   Subtraction
+		// \x              Literal escape
+		
+		b = "x".matches("[a-z]"); // true
+		b = "2".matches("[a-z]"); // false
+		b = "A".matches("[a-z]"); // false
+		b = "3".matches("[0-9]"); // true
+		b = "true".matches("[tT]rue"); // true
+		b = "True".matches("[tT]rue"); // true
+		b = "True".matches("[tT]rue|[yY]es"); // true 
+		b = "yes".matches("[tT]rue|[yY]es"); // true 
+		b = "Jhon".matches("[A-Z][a-zA-Z]*"); // true  
+		b = "olho".matches("[^abc]lho"); // true   
+		b = "alho".matches("[^abc]lho"); // false   
+		b = "krau".matches("kr[ae]u"); // true   
+		b = "kreu".matches("kr[ae]u"); // true
+		
 		System.out.println(b);
-		
-		
 		
 	}
 
