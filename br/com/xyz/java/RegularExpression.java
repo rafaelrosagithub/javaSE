@@ -66,7 +66,21 @@ public class RegularExpression {
 		
 		b = "59987-345".matches("\\d{5}-\\d{3}");
 		b = "19/10/1997".matches("\\d{2}/\\d{2}/\\d{4}");
+		//System.out.println(b);
+		
+		// Border metacharacter
+		// ^ Start
+		// $ ends
+		// | or
+		
+		b = "Route53".matches("^Route.*");
+		b = "Route53".matches(".*53$");
+		b = "There is a Route53 here".matches(".*Route.*");
+		b = "There is a Route53 here".matches("^There.*here$");
+		b = "yes".matches("yes|no");
 		System.out.println(b);
+		
+		
 		
 	}
 
