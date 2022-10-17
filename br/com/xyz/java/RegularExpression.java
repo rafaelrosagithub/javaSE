@@ -17,9 +17,8 @@ public class RegularExpression {
 		// (?s), Dottal
 		
 		b = "Java".matches("(?i)java");
-		System.out.println(b);
 		b = "Java".matches("(?im)java");
-		System.out.println(b);
+		//System.out.println(b);
 		
 		// Metacharacters
 		// .  Any character	   
@@ -31,31 +30,42 @@ public class RegularExpression {
 		// \W It's not lyrics
 		
 		b = "@".matches(".");
-		System.out.println(b);
 		b = "2".matches("\\d");
-		System.out.println(b);
 		b = "a".matches("\\d");
-		System.out.println(b);
 		b = "a".matches("\\w");
-		System.out.println(b);
 		b = "#".matches("\\w");
-		System.out.println(b);
 		b = " ".matches("\\s");
-		System.out.println(b);
 		b = "R".matches("\\s");
-		System.out.println(b);
 		b = "Pi".matches("..");
-		System.out.println(b);
 		b = "Pie".matches("...");
-		System.out.println(b);
 		b = "77".matches("\\d\\d");
-		System.out.println(b);
 		
 		String zipCode = "\\d\\d\\d\\d\\d-\\d\\d\\d";
 		b = "59987-345".matches(zipCode);
+		//System.out.println(b);
+		
+		// Quantifiers
+		// X{n}    X, Exactly n times
+		// X{n,}   X, at least n times
+		// X{n, m} X, At least n but not more than m times
+		// X?      X, 0 or 1 time
+		// X*      X, 0 or + times
+		// X+      X, 1 or + times
+		
+		b = "99".matches("\\d{2}");
+		b = "123".matches("\\d{2,}");
+		b = "12345".matches("\\d{2,5}");
+		b = "".matches(".?");    // 0 or 1
+		b = "a".matches(".?");  
+		b = "ab".matches(".?");
+		b = "ab".matches(".*");  // 0 or +
+		b = "abc".matches(".*"); 
+		b = "".matches(".+");   // 1 or +
+		b = "a".matches(".+");
+		b = "ab".matches(".+");
+		
+		b = "59987-345".matches("\\d{5}-\\d{3}");
 		System.out.println(b);
-		
-		
 		
 	}
 
