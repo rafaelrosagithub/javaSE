@@ -65,6 +65,7 @@ public class RegularExpression {
 		b = "ab".matches(".+");
 		
 		b = "59987-345".matches("\\d{5}-\\d{3}");
+		b = "19/10/1997".matches("\\d{2}/\\d{2}/\\d{4}");
 		System.out.println(b);
 		
 	}
