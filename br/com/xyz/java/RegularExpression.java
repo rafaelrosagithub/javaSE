@@ -102,7 +102,10 @@ public class RegularExpression {
 		b = "alho".matches("[^abc]lho"); // false   
 		b = "krau".matches("kr[ae]u"); // true   
 		b = "kreu".matches("kr[ae]u"); // true
+//		System.out.println(b);
 		
+//		Email validation
+		b = "rafael@xyz.com".matches("\\w+@\\w+\\.\\w{2,3}"); // true
 		System.out.println(b);
 		
 	}
