@@ -105,17 +105,39 @@ public class RegularExpression {
 		b = "alho".matches("[^abc]lho"); // false
 		b = "krau".matches("kr[ae]u"); // true
 		b = "kreu".matches("kr[ae]u"); // true
-//		System.out.println(b);
+		// System.out.println(b);
 
-//		Email validation
+		// Email validation
 		b = "rafael@xyz.com".matches("\\w+@\\w+\\.\\w{2,3}"); // true
-		System.out.println(b);
+		// System.out.println(b);
 
 		String doce = "Qual é o Doce mais doCe que o doce?";
 		Matcher matcher = Pattern.compile("(?i)doce").matcher(doce);
 		while (matcher.find()) {
-			System.out.println(matcher.group());
+			// System.out.println(matcher.group());
 		}
+
+		// Substitutions
+		String r = doce.replaceAll("(?i)doce", "DOCINHO");
+		// System.out.println(r);
+
+		String rato = "O rato roeu a roupa do rei de roma";
+		r = rato.replaceAll("r[aeiou]", "XX");
+		r = "Replace spaces with tabs".replaceAll("\\s", "\t");
+
+		String url = "www.xyz.com.br/customers-2022.html";
+		// Objective
+		// http://www.xti.com.br/2011/clintes.jsp
+
+		String re = "www.xyz.com.br/\\w{2,}-\\d{4}.html";
+		b = url.matches(re);
+
+		re = "(www.xyz.com.br)/(\\w{2,})-(\\d{4}).html";
+
+		r = url.replaceAll(re, "https://$1/$3/$2.java");
+
+		System.out.println(url);
+		System.out.println(r);
 	}
 
 }
