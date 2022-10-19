@@ -1,5 +1,6 @@
 package br.com.xyz.java;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -23,6 +24,17 @@ public class File2 {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		// Reading
+		try (BufferedReader r = Files.newBufferedReader(path, utf8)) {
+			String line = null;
+			while ((line = r.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
