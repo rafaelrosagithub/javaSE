@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 public class File4 {
 
@@ -48,14 +49,26 @@ public class File4 {
 		}
 	}
 
+	// Copy
+	private static void destiny(Path path, Path destiny) {
+		System.out.println("Copy File");
+		try {
+			Files.copy(path, destiny, StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Check, Delete, Create, Copy and Move");
 
 		Path path = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/source.txt");
+		Path destiny = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/source2.txt");
 
 //		check(path);
 //		delete(path);
-		create(path);
+//		create(path);
+		destiny(path, destiny);
 
 	}
 
