@@ -59,16 +59,29 @@ public class File4 {
 		}
 	}
 
+	// Move
+	private static void move(Path path, Path move) {
+		System.out.println("Copy File");
+		try {
+			Files.createDirectories(move.getParent());
+			Files.move(path, move, StandardCopyOption.REPLACE_EXISTING);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Check, Delete, Create, Copy and Move");
 
 		Path path = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/source.txt");
 		Path destiny = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/source2.txt");
+		Path move = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/move/source.txt");
 
 //		check(path);
 //		delete(path);
-//		create(path);
-		destiny(path, destiny);
+		create(path);
+//		destiny(path, destiny);
+		move(path, move);
 
 	}
 
