@@ -1,4 +1,0 @@
-Jhow;2000.25
-Maria;3000.0
-Peter;5000.17
-Lawrence;7000.59

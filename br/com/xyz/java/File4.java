@@ -23,12 +23,24 @@ public class File4 {
 		}
 	}
 
+	// Delete
+	private static void delete(Path path) {
+		try {
+			Files.delete(path);
+			Files.deleteIfExists(path);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Check, Delete, Create, Copy and Move");
 
 		Path path = Paths.get("D:/Rafael/Projects/Courses/Java/JavaSE/xyz/files/accounts.txt");
 
-		check(path);
+//		check(path);
+//		delete(path);
 
 	}
 
