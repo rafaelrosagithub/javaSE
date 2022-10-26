@@ -1,9 +1,10 @@
 package br.com.xyz.poo;
 
-public class Account {
+public class Account implements java.io.Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String client;
-	private double balance;
+	transient private double balance; // Will not be serialized
 
 	public Account() {
 	};
