@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class TextControl extends JFrame implements ActionListener {
+public class TextControl extends JFrame {
 
 	JTextField login;
 	JPasswordField password;
@@ -26,10 +26,10 @@ public class TextControl extends JFrame implements ActionListener {
 		password = new JPasswordField();
 
 		ok = new JButton("Ok");
-		ok.addActionListener(this);
+		ok.addActionListener(new ListenerButtonOK());
 
 		cancel = new JButton("Cancel");
-		cancel.addActionListener(this);
+		cancel.addActionListener(new ListenerButtonCancel());
 
 		Container c = getContentPane();
 		c.setLayout(new GridLayout(3, 2));
@@ -51,14 +51,33 @@ public class TextControl extends JFrame implements ActionListener {
 		new TextControl();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == ok) {
-			System.out.println("Button Ok");
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		if (e.getSource() == ok) {
+//			System.out.println("Button Ok");
+//			String s = "Login: " + login.getText() + "\nSenha: " + new String(password.getPassword());
+//			JOptionPane.showMessageDialog(null, s);
+//		} else if (e.getSource() == cancel) {
+//			System.out.println("Button Cancel");
+//			login.setText("");
+//			password.setText("");
+//		}
+//
+//	}
+
+	class ListenerButtonOK implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Button Ok class");
 			String s = "Login: " + login.getText() + "\nSenha: " + new String(password.getPassword());
 			JOptionPane.showMessageDialog(null, s);
-		} else if (e.getSource() == cancel) {
-			System.out.println("Button Cancel");
+		}
+	}
+
+	class ListenerButtonCancel implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println("Button Cancel class");
 			login.setText("");
 			password.setText("");
 		}
