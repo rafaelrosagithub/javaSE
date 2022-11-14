@@ -38,7 +38,7 @@ public class CheckControl extends JFrame {
 		setVisible(true);
 	}
 
-	class CheckListener implements ItemListener {
+	class CheckListener implements ItemListener { 
 
 		@Override
 		public void itemStateChanged(ItemEvent e) {
