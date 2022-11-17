@@ -3,6 +3,7 @@ package br.com.xyz.collection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class Collections {
 
@@ -28,6 +29,11 @@ public class Collections {
 		System.out.println(c.containsAll(c2));
 		c.removeAll(c2);
 		System.out.println(c.toString());
+
+		// Go through the elements
+		for (String string : c) {
+			System.out.println(string);
+		}
 	}
 
 }
