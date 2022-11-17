@@ -34,6 +34,14 @@ public class Collections {
 		for (String string : c) {
 			System.out.println(string);
 		}
+
+		// Converting collection to array
+		String[] s = c.toArray(new String[c.size()]);
+		System.out.println(Arrays.toString(s));
+
+		c.clear();
+		System.out.println(c);
+
 	}
 
 }
