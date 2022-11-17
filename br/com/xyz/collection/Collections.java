@@ -1,6 +1,7 @@
 package br.com.xyz.collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class Collections {
@@ -17,11 +18,16 @@ public class Collections {
 		System.out.println(c.toString());
 		System.out.println(c.isEmpty());
 		System.out.println(c.contains("C"));
-
 		c.remove("D");
 		System.out.println(c.toString());
-		
-		
+
+		// Groups
+		Collection<String> c2 = Arrays.asList("S", "W");
+		c.addAll(c2);
+		System.out.println(c.toString());
+		System.out.println(c.containsAll(c2));
+		c.removeAll(c2);
+		System.out.println(c.toString());
 	}
 
 }
