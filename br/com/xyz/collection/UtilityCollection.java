@@ -2,6 +2,7 @@ package br.com.xyz.collection;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -43,6 +44,11 @@ public class UtilityCollection {
 
 		Collections.fill(list, "Cocoa");
 		System.out.println(list);
+
+		// Non-modifiable collection
+		Collection<String> constant = Collections.unmodifiableCollection(list);
+		System.out.println(constant);
+
 	}
 
 }
