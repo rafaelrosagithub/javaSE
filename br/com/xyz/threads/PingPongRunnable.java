@@ -27,7 +27,7 @@ public class PingPongRunnable implements Runnable {
 		System.out.println("Runnable");
 
 		Runnable ping = new PingPongRunnable("Ping", 1000);
-		Runnable pong = new PingPongRunnable("Pong", 3000);
+		Runnable pong = new PingPongRunnable("Pong", 2000);
 
 		new Thread(ping, "ping").start();
 		new Thread(pong, "pong").start();
