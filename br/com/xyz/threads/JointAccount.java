@@ -8,7 +8,7 @@ public class JointAccount {
 		return balance;
 	}
 
-	public void toWithdraw(int value, String client) {
+	public synchronized void toWithdraw(int value, String client) {
 		if (balance >= value) {
 			System.out.println(client + " toWithdraw()");
 			int originalBalance = balance;
@@ -19,7 +19,8 @@ public class JointAccount {
 				e.printStackTrace();
 			}
 			balance -= value;
-			System.out.println("Original balance: " + originalBalance + ", " + client + " drew: " + value + ", Final balance: " + balance );
+			System.out.println("Original balance: " + originalBalance + ", " + client + " drew: " + value
+					+ ", Final balance: " + balance);
 		} else {
 			System.out.println("Insufficient account balance ");
 		}
