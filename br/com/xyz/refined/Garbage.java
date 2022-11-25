@@ -27,7 +27,7 @@ public class Garbage {
 
 		rt.runFinalization();
 		rt.gc();
-		
+
 		double end = total - (rt.freeMemory() / MB);
 		System.out.println("Start: " + start + " End: " + end);
 	}
