@@ -16,23 +16,22 @@ public class Nesting extends JFrame {
 		button = new JButton("Ok");
 		button.addActionListener(new NestedListener());
 
+		getContentPane().add(button);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(450, 450);
 		setVisible(true);
 	}
 
 	public class NestedListener implements ActionListener {
-
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("Nested class execute " + button.getText());
-
 		}
-
 	}
 
 	public static void main(String[] args) {
 		System.out.println("Nested Classes");
+		Nesting window = new Nesting();
 	}
 
 }
