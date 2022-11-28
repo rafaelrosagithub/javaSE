@@ -15,6 +15,12 @@ public class Nesting extends JFrame {
 
 		button = new JButton("Ok");
 		button.addActionListener(new NestedListener());
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Anonymous class executed " + button.getText());
+			}
+		});
 
 		getContentPane().add(button);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +31,7 @@ public class Nesting extends JFrame {
 	public class NestedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println("Nested class execute " + button.getText());
+			System.out.println("Nested class executed " + button.getText());
 		}
 	}
 
