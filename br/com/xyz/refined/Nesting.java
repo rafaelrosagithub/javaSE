@@ -38,6 +38,8 @@ public class Nesting extends JFrame {
 	public static void main(String[] args) {
 		System.out.println("Nested Classes");
 		Nesting window = new Nesting();
+
+		Nesting.NestedListener listener = window.new NestedListener();
 	}
 
 }
