@@ -3,8 +3,8 @@ package br.com.xyz.poo;
 public class Account implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private String client;
-	transient private double balance; // Will not be serialized
+	public String client;
+	transient public double balance; // Will not be serialized
 
 	public Account() {
 	};
