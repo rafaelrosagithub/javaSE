@@ -8,10 +8,13 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ChatClient extends JFrame {
@@ -20,6 +23,23 @@ public class ChatClient extends JFrame {
 	Socket socket;
 	PrintWriter writer;
 	String name;
+	JTextArea textReceived;
+	Scanner reader;
+
+	private class ListenServer implements Runnable {
+
+		@Override
+		public void run() {
+			try {
+				String text;
+				while ((text = reader.nextLine()) != null) {
+					textReceived.append(text + "\n");
+				}
+			} catch (Exception e) {
+			}
+		}
+
+	}
 
 	public ChatClient(String name) {
 		super("Chat: " + name);
@@ -36,12 +56,18 @@ public class ChatClient extends JFrame {
 		send.setLayout(new BorderLayout());
 		send.add(BorderLayout.CENTER, textToSend);
 		send.add(BorderLayout.EAST, button);
+
+		textReceived = new JTextArea();
+		textReceived.setFont(font);
+		JScrollPane scroll = new JScrollPane(textReceived);
+
+		getContentPane().add(BorderLayout.CENTER, scroll);
 		getContentPane().add(BorderLayout.SOUTH, send);
 
 		configNetwork();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 90);
+		setSize(500, 500);
 		setVisible(true);
 	}
 
@@ -61,6 +87,8 @@ public class ChatClient extends JFrame {
 		try {
 			socket = new Socket("127.0.0.1", 5000);
 			writer = new PrintWriter(socket.getOutputStream());
+			reader = new Scanner(socket.getInputStream());
+			new Thread(new ListenServer()).start();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

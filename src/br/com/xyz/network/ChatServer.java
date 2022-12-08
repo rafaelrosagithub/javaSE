@@ -1,11 +1,16 @@
 package br.com.xyz.network;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ChatServer {
+
+	List<PrintWriter> writers = new ArrayList<>();
 
 	public ChatServer() {
 		ServerSocket server;
@@ -14,9 +19,21 @@ public class ChatServer {
 			while (true) {
 				Socket socket = server.accept();
 				new Thread(new ListenCustomer(socket)).start();
+				PrintWriter p = new PrintWriter(socket.getOutputStream());
+				writers.add(p);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+
+	private void forwardToAll(String text) {
+		for (PrintWriter w : writers) {
+			try {
+				w.println(text);
+				w.flush();
+			} catch (Exception e) {
+			}
 		}
 	}
 
@@ -38,6 +55,7 @@ public class ChatServer {
 				String text;
 				while ((text = reader.nextLine()) != null) {
 					System.out.println(text);
+					forwardToAll(text);
 				}
 			} catch (Exception e) {
 			}
