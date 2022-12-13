@@ -17,5 +17,6 @@ public class Test {
 
 		list.stream().peek(n -> System.out.println("debug"))
 				.map(n -> new StringBuilder().append(n).append("s").append("a")).forEach(System.out::println);
+
 	}
 }
