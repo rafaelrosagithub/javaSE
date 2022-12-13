@@ -12,7 +12,10 @@ public class Test {
 		list.stream().filter(e -> e % 2 == 0).forEach(e -> System.out.println(e));
 
 		list.stream().map(e -> e * 2).forEach(e -> System.out.println(e));
-		
+
 		list.stream().distinct().map(e -> e + 2).forEach(e -> System.out.println(e));
+
+		list.stream().peek(n -> System.out.println("debug"))
+				.map(n -> new StringBuilder().append(n).append("s").append("a")).forEach(System.out::println);
 	}
 }
