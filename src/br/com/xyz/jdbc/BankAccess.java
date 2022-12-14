@@ -12,12 +12,14 @@ public class BankAccess {
 		System.out.println("Bank Access with JDBC");
 
 		String sql = "select code, name, sex, email from person";
-		String url = "jdbc:postgresql://localhost/teste";
-		try (Connection con = DriverManager.getConnection(url, "postgres", "tcc2");
+		String url = "jdbc:postgresql://localhost:5432/teste";
+		try (Connection con = DriverManager.getConnection(url, "postgres", "test");
 				PreparedStatement stm = con.prepareStatement(sql);
 				ResultSet rs = stm.executeQuery()) {
+			System.out.println("**************************");
 			while (rs.next()) {
-				System.out.println(rs.getString("name"));
+				System.out.println("Name: " + rs.getString("name") + "\n" + "Code: " + rs.getString(1) + "\n" + "Sex: "
+						+ rs.getString("sex") + "\nEmail: " + rs.getString(4) + "\n**************************");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
