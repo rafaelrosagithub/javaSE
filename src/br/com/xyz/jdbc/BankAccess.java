@@ -12,9 +12,9 @@ public class BankAccess {
 		System.out.println("Bank Access with JDBC");
 
 		String sql = "select code, name, sex, email from person";
-		String url = "jdbc:postgresql:localhost:5432:teste";
+		String url = "jdbc:postgresql://localhost/teste";
 		try (Connection con = DriverManager.getConnection(url, "postgres", "tcc2");
-				PreparedStatement stm = con.prepareStatement(url);
+				PreparedStatement stm = con.prepareStatement(sql);
 				ResultSet rs = stm.executeQuery()) {
 			while (rs.next()) {
 				System.out.println(rs.getString("name"));
