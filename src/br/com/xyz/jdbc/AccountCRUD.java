@@ -34,13 +34,23 @@ public class AccountCRUD {
 		}
 		return list;
 	}
-	
+
 	public void update(Connection con, Account account) {
 		String sql = "update account set client = ?, balance = ? where num = ?";
 		try (PreparedStatement stm = con.prepareStatement(sql)) {
+			stm.setString(1, account.client);
+			stm.setDouble(2, account.balance);
+			stm.setInt(3, account.num);
+			stm.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void delete(Connection con, Account account) {
+		String sql = "delete from account where num = ?";
+		try (PreparedStatement stm = con.prepareStatement(sql)) {
 			stm.setInt(1, account.num);
-			stm.setString(2, account.client);
-			stm.setDouble(3, account.balance);
 			stm.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -61,6 +71,9 @@ public class AccountCRUD {
 			crud.create(con, account1);
 			crud.create(con, account2);
 			crud.create(con, account3);
+			account3.balance = 7000.10;
+			crud.update(con, account3);
+			crud.delete(con, account1);
 
 			List<Account> account = crud.read(con);
 			account.stream().forEach(n -> System.out.println(n));
