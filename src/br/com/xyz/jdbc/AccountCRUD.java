@@ -34,17 +34,29 @@ public class AccountCRUD {
 		}
 		return list;
 	}
+	
+	public void update(Connection con, Account account) {
+		String sql = "update account set client = ?, balance = ? where num = ?";
+		try (PreparedStatement stm = con.prepareStatement(sql)) {
+			stm.setInt(1, account.num);
+			stm.setString(2, account.client);
+			stm.setDouble(3, account.balance);
+			stm.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static void main(String[] args) {
 		System.out.println("JDBC CRUD, Create, Read, Update and Delete");
 
 		String url = "jdbc:postgresql://localhost:5432/teste";
-		try (Connection con = DriverManager.getConnection(url, "postgres", "test")) {
+		try (Connection con = DriverManager.getConnection(url, "postgres", "tcc2")) {
 			AccountCRUD crud = new AccountCRUD();
 
 			Account account1 = new Account(1, "Jhon", 1000.70);
-			Account account2 = new Account(1, "Maria", 3000.30);
-			Account account3 = new Account(1, "Paul", 5000.90);
+			Account account2 = new Account(2, "Maria", 3000.30);
+			Account account3 = new Account(3, "Paul", 5000.90);
 
 			crud.create(con, account1);
 			crud.create(con, account2);
