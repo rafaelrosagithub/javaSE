@@ -7,7 +7,7 @@ public class Mathematics {
 	 * @param number
 	 * @return The square root of a number according to pell's equation
 	 */
-	int root(int number) {
+	public int root(int number) {
 		int root = 0, odd = 1;
 		while (number >= odd) {
 			number -= odd;
@@ -23,12 +23,16 @@ public class Mathematics {
 	 * @param two
 	 * @return The larger of the two numbers
 	 */
-	int larger(int one, int two) {
+	public int larger(int one, int two) {
 		if (one > two) {
 			return one;
 		} else {
 			return two;
 		}
+	}
+
+	public double divide(int one, int two) {
+		return one / two;
 	}
 
 	double sum(double one, double two) {
