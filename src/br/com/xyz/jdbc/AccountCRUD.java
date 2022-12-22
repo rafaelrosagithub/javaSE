@@ -47,6 +47,31 @@ public class AccountCRUD {
 		}
 	}
 
+	public void transfer(Connection con, Account source, Account destiny, double value) throws SQLException {
+		if (source.balance >= value) {
+			try {
+				con.setAutoCommit(false);
+
+				// Withdraw
+				source.balance -= value;
+				update(con, source);
+
+				// Simulating error
+				int x = 1 / 0;
+
+				// Deposit
+				destiny.balance += value;
+				update(con, destiny);
+
+				con.commit();
+			} catch (Exception e) {
+				con.rollback();
+				e.printStackTrace();
+			}
+
+		}
+	}
+
 	public void delete(Connection con, Account account) {
 		String sql = "delete from account where num = ?";
 		try (PreparedStatement stm = con.prepareStatement(sql)) {
@@ -68,15 +93,22 @@ public class AccountCRUD {
 			Account account2 = new Account(2, "Maria", 3000.30);
 			Account account3 = new Account(3, "Paul", 5000.90);
 
-			crud.create(con, account1);
-			crud.create(con, account2);
-			crud.create(con, account3);
-			account3.balance = 7000.10;
-			crud.update(con, account3);
-			crud.delete(con, account1);
+//			crud.create(con, account1);
+//			crud.create(con, account2);
+//			crud.create(con, account3);
+//			account3.balance = 7000.10;
+//			crud.update(con, account3);
+//			crud.delete(con, account1);
 
 			List<Account> account = crud.read(con);
 			account.stream().forEach(n -> System.out.println(n));
+
+			Account source = account.get(0);
+			Account destiny = account.get(1);
+			crud.transfer(con, source, destiny, 1000);
+
+			List<Account> account4 = crud.read(con);
+			account4.stream().forEach(n -> System.out.println(n));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
